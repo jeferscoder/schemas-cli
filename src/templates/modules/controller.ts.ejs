@@ -1,7 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import * as services from './<%= props.plural %>.service';
 
-const save = async ({ body }: Request, response: Response, next: NextFunction) => {
+const save = async (
+  { body }: Request,
+  response: Response,
+  next: NextFunction,
+) => {
   try {
     const entity = await services.save(body);
     response.status(201).json(entity);
@@ -41,7 +45,7 @@ const update = async (
   try {
     const { id } = params;
     await services.update(id, body);
-    response.status(200).json(entity);
+    response.status(204).json();
   } catch (error) {
     next(error);
   }
@@ -55,7 +59,7 @@ const destroy = async (
   try {
     const { id } = params;
     await services.destroy(id);
-    response.status(204).json(entity);
+    response.status(204).json();
   } catch (error) {
     next(error);
   }
