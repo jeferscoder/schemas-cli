@@ -1,0 +1,7 @@
+import { PrismaClient } from '@prisma/client';
+
+const { <%= props.singular %> } = new PrismaClient();
+
+const <%= props.upper %> = <%= props.singular %>;
+
+export { <%= props.upper %> };

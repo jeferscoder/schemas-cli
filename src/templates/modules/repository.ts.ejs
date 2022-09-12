@@ -1,0 +1,24 @@
+import { saveDTO, updateDTO } from './<%= props.plural %>.dto';
+import { <%= props.upper %> } from './<%= props.plural %>.model';
+
+const save = async (data: saveDTO) => {
+  return await <%= props.upper %>.create({ data });
+};
+
+const findAll = async () => {
+  return await <%= props.upper %>.findMany();
+};
+
+const findOne = async (id: string) => {
+  return await <%= props.upper %>.findUnique({ where: { id } });
+};
+
+const update = async (id: string, data: updateDTO) => {
+  return await <%= props.upper %>.updateMany({ where: { id }, data });
+};
+
+const destroy = async (id: string) => {
+  return await <%= props.upper %>.delete({ where: { id } });
+};
+
+export { save, findAll, findOne, update, destroy };

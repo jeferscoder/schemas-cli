@@ -1,0 +1,24 @@
+import { saveDTO, updateDTO } from './<%= props.plural %>.dto';
+import * as repository from './<%= props.plural %>.repository';
+
+const save = async (dto: saveDTO) => {
+  return await repository.save(dto);
+};
+
+const findAll = async () => {
+  return await repository.findAll();
+};
+
+const findOne = async (id: string) => {
+  return await repository.findOne(id);
+};
+
+const update = async (id: string, dto: updateDTO) => {
+  return await repository.update(id, dto);
+};
+
+const destroy = async (id: string) => {
+  return await repository.destroy(id);
+};
+
+export { save, findAll, findOne, update, destroy };
